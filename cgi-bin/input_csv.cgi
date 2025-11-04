@@ -9,7 +9,9 @@ use LogHandler;
 use Constants;
 use Data::Dumper;
 
+LogHandler::output_info_log(Constants::LOG_MESSAGE_START_OPEN_INPUT_CSV);
 show_input_csv_screen();
+LogHandler::output_info_log(Constants::LOG_MESSAGE_END_OPEN_INPUT_CSV);
 #####################################################
 # CSV読み込み画面を表示
 #####################################################
@@ -28,20 +30,22 @@ sub show_input_csv_screen{
     <div class="container">
         <h1>📊 CSV ビューアー</h1>
         
-        <div class="upload-area" id="upload-area">
-            <div class="upload-icon">📁</div>
-            <div class="upload-text">CSVファイルをドラッグ&ドロップ</div>
-            <div class="upload-subtext">または、クリックしてファイルを選択</div>
-        </div>
+        <form method="POST" action="/cgi-bin/csv_viewer.cgi" enctype="multipart/form-data" id="upload-form">
+            <div class="upload-area" id="upload-area">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">CSVファイルをドラッグ&ドロップ</div>
+                <div class="upload-subtext">または、クリックしてファイルを選択</div>
+            </div>
 
-        <input type="file" id="file-input" accept=".csv" />
+            <input type="file" name="csv_file" id="file-input" accept=".csv" style="display: none;" required />
 
-        <div class="file-info" id="file-info">
-            <div class="file-name" id="file-name"></div>
-            <div id="file-size"></div>
-        </div>
+            <div class="file-info" id="file-info">
+                <div class="file-name" id="file-name"></div>
+                <div id="file-size"></div>
+            </div>
 
-        <button class="load-button" id="load-button" disabled>CSVを読み込む</button>
+            <button type="submit" class="load-button" id="load-button" disabled>CSVを読み込む</button>
+        </form>
     </div>
 </body>
 </html>

@@ -108,6 +108,9 @@ use constant{
     # system_error.cgi
     LOG_MESSAGE_START_OPEN_SYSTEM_ERROR => "system_error.cgi START",
     LOG_MESSAGE_END_OPEN_SYSTEM_ERROR => "system_error.cgi END",
+    # input_csv.cgi
+    LOG_MESSAGE_START_OPEN_INPUT_CSV => "input_csv.cgi START",
+    LOG_MESSAGE_END_OPEN_INPUT_CSV => "input_csv.cgi END",
 };
 1; #perlモジュールは真値で終わる必要があるため
 

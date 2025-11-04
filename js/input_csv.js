@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
     uploadArea.addEventListener("drop", function (e) {
         e.preventDefault();
         uploadArea.classList.remove("dragover");
+        const dt = new DataTransfer();
+        dt.items.add(e.dataTransfer.files[0]);
+        fileInput.files = dt.files;
         handleFile(e.dataTransfer.files[0]);
     });
 });

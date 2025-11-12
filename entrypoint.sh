@@ -28,6 +28,8 @@ if [ -d "/usr/local/apache2/data/input_files/" ]; then
 fi
 # log
 if [ -d "/var/log/action_log/" ]; then
+    # ディレクトリの権限を変更（書き込み可能に）
+    chmod 777 /var/log/action_log/ 2>/dev/null || true
     find /var/log/action_log/ -name "*.log" -exec dos2unix {} \; 2>/dev/null || true
     find /var/log/action_log/ -name "*.log" -exec chmod 644 {} \; 2>/dev/null || true
 fi

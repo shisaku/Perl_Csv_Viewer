@@ -21,10 +21,6 @@ BEGIN{
 #----------------------
 # コンパイル時に実行
 use constant{
-    # 投稿一覧のCSVファイルパス
-    POST_LIST_FILE_PATH => $config_obj->{FILE_PATH}->{post_list_csv},
-    # 投稿一覧のIDカウント管理ファイルパス
-    POST_LIST_ID_COUNT_FILE_PATH => $config_obj->{FILE_PATH}->{post_list_id_count_file_path},
     # logフォルダパス
     LOG_FOLDER_PATH => $config_obj->{FILE_PATH}->{log_folder_path}
 };

@@ -52,9 +52,7 @@ function handleFile(file) {
     fileSize = document.getElementById("file-size");
     loadButton = document.getElementById("load-button");
     fileInfo = document.getElementById("file-info");
-    let selectedFile = null;
     if (file && file.name.endsWith(".csv")) {
-        selectedFile = file;
         fileName.textContent = `ファイル名: ${file.name}`;
         fileSize.textContent = `サイズ: ${(file.size / 1024).toFixed(2)} KB`;
         fileInfo.classList.add("show");

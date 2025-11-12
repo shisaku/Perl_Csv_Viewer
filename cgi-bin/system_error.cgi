@@ -4,7 +4,6 @@ use warnings;
 # モジュール系
 use lib '/usr/local/apache2/cgi-bin/module';
 use BaseApp;
-use PostListHandler;
 use LogHandler;
 use Constants;
 use Data::Dumper;

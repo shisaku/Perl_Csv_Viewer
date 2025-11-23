@@ -6,7 +6,9 @@ FROM httpd:2.4
 # CGI.pmのインストール
 # apt パッケージマネージャがダウンロードした Debian パッケージファイル（.deb）を削除するコマンド
 RUN apt-get update && \
-    apt-get install -y perl libcgi-pm-perl libtext-csv-perl && \
+    apt-get install -y perl libcgi-pm-perl libtext-csv-perl \
+    build-essential cpanminus libmodule-build-perl && \
+    cpanm Encode::Detect::Detector && \
     apt-get clean
 
 # CGIモジュールを有効化

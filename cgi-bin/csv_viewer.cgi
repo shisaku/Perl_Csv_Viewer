@@ -10,13 +10,13 @@ use Data::Dumper;
 use CGI;
 use Text::CSV;
 my $cgi = CGI->new();
-use Encode 'decode';
+use Encode qw(decode encode);
+use Encode::Detect::Detector;
 
 LogHandler::output_info_log(Constants::LOG_MESSAGE_START_OPEN_CSV_VIEWER);
 #####################################################
-# CSVファイルのアップロードとCSVデータの読み込み
+# CSVデータの読み込み
 #####################################################
-# ファイルアップロード処理
 my $csv_file = $cgi->param('csv_file');
 my $filename = $cgi->upload('csv_file');
 
@@ -26,8 +26,8 @@ unless ($csv_file) {
     print_error();
     exit;
 }
+binmode($filename);  # バイナリモード設定
 
-# CSVデータを読み込む
 my $csv = Text::CSV->new({ 
     binary => 1, 
     auto_diag => 1,
@@ -37,41 +37,52 @@ my $csv = Text::CSV->new({
     allow_whitespace => 1 # 空白を許可
 });
 my @rows;
-
+# ======================================
+# 読み込んだCSVをヘッダ部・データ部に分離し、HTML形式に変換
+# ======================================
 while (my $line = <$csv_file>) {
-    $line = decode('UTF-8', $line);
+    my $detected_enc = Encode::Detect::Detector::detect($line) || 'UTF-8';
+    $line = decode($detected_enc, $line);
     if ($csv->parse($line)) {
         my @fields = $csv->fields();
         push @rows, \@fields;
     }
 }
-
 my $header = $rows[0];
 my @data = @rows[1..$#rows];
-
 my $table_header = createHeaderElement($header);
 my $table_data = createDataElement(\@data);
 
-show_csv_viewer($table_header, $table_data);
+show_csv_viewer($filename,$table_header, $table_data);
 
 LogHandler::output_info_log(Constants::LOG_MESSAGE_END_OPEN_CSV_VIEWER);
+#####################################################
+# 一覧画面を出力
+#####################################################
+sub parseCharacterEncoding{
+    my ($targetArray,$characterEncoding) = @_;
 
+}
 #####################################################
 # 一覧画面を出力
 #####################################################
 sub show_csv_viewer{
-    my ($table_header, $table_data) = @_;
+    my ($filename,$table_header, $table_data) = @_;
     print <<HTML;
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSV ビューアー</title>
+    <title>CSV VIEWER</title>
     <link rel="stylesheet" href="/css/csv_viewer.css">
+    <script src="/js/csv_viewer.js"></script>
 </head>
 <body>
-    <h1>CSV ビューアー</h1>
+    <div class="header-container">
+        <h1>$filename</h1>
+        <button id="back-btn"class="back-button">BACK</button>
+    </div>
     <table class="outer-border">
         <thead>
             <tr>

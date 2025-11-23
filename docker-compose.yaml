@@ -1,14 +1,13 @@
 version: "3.8"
 
 services:
-  perl-cgi:
-    build: .
-    ports:
-      - "8080:80"
-    volumes:
-      - ./cgi-bin:/usr/local/apache2/cgi-bin
-      - ./css:/usr/local/apache2/htdocs/css/
-      - ./js:/usr/local/apache2/htdocs/js/
-      - ./input_files:/usr/local/apache2/data/input_files/
-      - ./log:/var/log/action_log/
-    restart: unless-stopped
+    perl-cgi:
+        build: .
+        ports:
+            - "8080:80"
+        volumes:
+            - ./cgi-bin:/usr/local/apache2/cgi-bin
+            - ./css:/usr/local/apache2/htdocs/css/
+            - ./js:/usr/local/apache2/htdocs/js/
+            - ./log:/var/log/action_log/
+        restart: unless-stopped

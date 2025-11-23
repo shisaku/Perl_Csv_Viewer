@@ -27,7 +27,7 @@ sub show_input_csv_screen{
 </head>
 <body>
     <div class="container">
-        <h1>📊 CSV ビューアー</h1>
+        <h1>CSV ビューアー</h1>
         
         <form method="POST" action="/cgi-bin/csv_viewer.cgi" enctype="multipart/form-data" id="upload-form">
             <div class="upload-area" id="upload-area">

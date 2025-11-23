@@ -10,9 +10,9 @@ let fileInput, fileName, fileSize, loadButton, fileInfo;
 document.addEventListener("DOMContentLoaded", function () {
     const uploadArea = document.getElementById("upload-area");
 
-    //======================
+    //======================================
     // 「クリックしてファイルを選択」イベント
-    //======================
+    //======================================
     //アップロードエリアをクリックしたとき
     fileInput = document.getElementById("file-input");
     uploadArea.addEventListener("click", function () {
@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
     fileInput.addEventListener("change", function (e) {
         handleFile(e.target.files[0]);
     });
-    //======================
+    //======================================
     // 「ドラッグ＆ドロップ」イベント
-    //======================
+    //======================================
     // ドラックしてアップロードエリアに入ったとき
     uploadArea.addEventListener("dragover", function (e) {
         e.preventDefault();

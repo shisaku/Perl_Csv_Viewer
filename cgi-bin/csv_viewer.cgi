@@ -20,11 +20,11 @@ LogHandler::output_info_log(Constants::LOG_MESSAGE_START_OPEN_CSV_VIEWER);
 my $csv_file = $cgi->param('csv_file');
 my $filename = $cgi->upload('csv_file');
 
-print "Content-Type: text/html; charset=UTF-8\n\n";
+
 
 unless ($csv_file) {
     print_error();
-    exit;
+    # exit;
 }
 binmode($filename);  # バイナリモード設定
 
@@ -52,7 +52,7 @@ my $header = $rows[0];
 my @data = @rows[1..$#rows];
 my $table_header = createHeaderElement($header);
 my $table_data = createDataElement(\@data);
-
+print "Content-Type: text/html; charset=UTF-8\n\n";
 show_csv_viewer($filename,$table_header, $table_data);
 
 LogHandler::output_info_log(Constants::LOG_MESSAGE_END_OPEN_CSV_VIEWER);
@@ -133,6 +133,9 @@ sub createDataElement{
 #####################################################
 sub print_error {
     LogHandler::output_info_log(Constants::LOG_MESSAGE_ERR_CSV_UPLOAD);
-    my $message = "CSVファイルのアップロードに失敗しました。";
-    print "<html><body><h1>エラー</h1><p>$message</p></body></html>\n";
+    my $redirect_url = "/cgi-bin/system_error.cgi";
+
+    print "Status: 302 Found\n";
+    print "Location: $redirect_url\n";
+    print "\n";
 }

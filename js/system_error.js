@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 //======================
-// 投稿画面へリダイレクト
+// CSV読込画面へリダイレクト
 //======================
 function redirectPostList() {
-    window.location.href = "/cgi-bin/post_list.cgi";
+    window.location.href = "/cgi-bin/input_csv.cgi";
 }

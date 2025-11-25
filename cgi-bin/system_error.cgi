@@ -31,7 +31,7 @@ sub show_error_screen {
         <h1>システムエラー</h1>
         <p class="error-message">サイト管理者までご連絡ください</p>
         <div class="buttons">
-            <button id="back-button">戻る</button>
+            <button id="back-button">BACK</button>
         </div>
     </div>
 </body>

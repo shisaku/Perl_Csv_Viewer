@@ -23,8 +23,9 @@ my $filename = $cgi->upload('csv_file');
 
 
 unless ($csv_file) {
+    LogHandler::output_error_log(Constants::LOG_MESSAGE_ERR_CSV_UPLOAD);
     print_error();
-    # exit;
+    LogHandler::output_info_log(Constants::LOG_MESSAGE_END_OPEN_CSV_VIEWER);
 }
 binmode($filename);  # バイナリモード設定
 
@@ -132,7 +133,7 @@ sub createDataElement{
 # エラー画面
 #####################################################
 sub print_error {
-    LogHandler::output_info_log(Constants::LOG_MESSAGE_ERR_CSV_UPLOAD);
+    
     my $redirect_url = "/cgi-bin/system_error.cgi";
 
     print "Status: 302 Found\n";

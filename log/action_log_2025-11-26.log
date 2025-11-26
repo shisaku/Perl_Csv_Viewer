@@ -1,0 +1,30 @@
+[INFO]   2025/11/26 14:48:07 input_csv.cgi START
+[INFO]   2025/11/26 14:48:07 input_csv.cgi END
+[INFO]   2025/11/26 14:49:53 csv_viewer.cgi START
+[INFO]   2025/11/26 14:49:53 csv_viewer.cgi END
+[INFO]   2025/11/26 14:50:34 input_csv.cgi START
+[INFO]   2025/11/26 14:50:34 input_csv.cgi END
+[INFO]   2025/11/26 14:50:48 csv_viewer.cgi START
+[INFO]   2025/11/26 14:50:48 csv_viewer.cgi END
+[INFO]   2025/11/26 14:50:56 csv_viewer.cgi START
+[INFO]   2025/11/26 14:50:56 csv_viewer.cgi CSV UPLOAD ERROR
+[INFO]   2025/11/26 14:50:56 system_error.cgi START
+[INFO]   2025/11/26 14:50:56 system_error.cgi END
+[INFO]   2025/11/26 14:53:37 csv_viewer.cgi START
+[ERROR]  2025/11/26 14:53:37 csv_viewer.cgi CSV UPLOAD ERROR
+[INFO]   2025/11/26 14:53:37 csv_viewer.cgi END
+[INFO]   2025/11/26 14:53:37 system_error.cgi START
+[INFO]   2025/11/26 14:53:37 system_error.cgi END
+[INFO]   2025/11/26 14:53:41 input_csv.cgi START
+[INFO]   2025/11/26 14:53:41 input_csv.cgi END
+[INFO]   2025/11/26 14:53:43 csv_viewer.cgi START
+[ERROR]  2025/11/26 14:53:43 csv_viewer.cgi CSV UPLOAD ERROR
+[INFO]   2025/11/26 14:53:43 csv_viewer.cgi END
+[INFO]   2025/11/26 14:53:43 system_error.cgi START
+[INFO]   2025/11/26 14:53:43 system_error.cgi END
+[INFO]   2025/11/26 14:54:06 input_csv.cgi START
+[INFO]   2025/11/26 14:54:06 input_csv.cgi END
+[INFO]   2025/11/26 14:54:14 csv_viewer.cgi START
+[INFO]   2025/11/26 14:54:14 csv_viewer.cgi END
+[INFO]   2025/11/26 14:54:21 input_csv.cgi START
+[INFO]   2025/11/26 14:54:21 input_csv.cgi END
